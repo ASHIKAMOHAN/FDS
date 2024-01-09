@@ -7,6 +7,9 @@ from scipy.stats import norm
 data = pd.read_csv('data1-1 (1).csv', header=None, names=['Salary'])
 
 def get_statistical_description(data):
+    """
+    Generate a histogram plot of the salary distribution along with a fitted normal distribution.
+    """
     salary_data = data['Salary']
     median = np.median(salary_data)
     mode = salary_data.mode().iloc[0]
@@ -26,6 +29,9 @@ mode, median, std, variance, kurtosis, skewness, data_range, max_value, min_valu
 print(f"Mode: {mode}, Median: {median}, Std: {std}, Variance: {variance}, Kurtosis: {kurtosis}, Skewness: {skewness}, Range: {data_range}, Max: {max_value}, Min: {min_value}, IQR: {iqr}")
 
 def HistPlot(data):
+    """
+    Generates a Histogram of data 
+    """
     # Plot the histogram
     plt.hist(data, bins=30, density=True, alpha=0.7, color='#632134', edgecolor='black', label='Salary Distribution')
 
