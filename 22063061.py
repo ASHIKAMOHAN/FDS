@@ -22,16 +22,14 @@ def get_statistical_description(data):
     iqr = Q3 - Q1
     return mode, median, std, variance, kurtosis, skewness, data_range, max_value, min_value, iqr
 
-# Assuming 'data' is a DataFrame with a 'Salary' column
 mode, median, std, variance, kurtosis, skewness, data_range, max_value, min_value, iqr = get_statistical_description(data)
-
 print(f"Mode: {mode}, Median: {median}, Std: {std}, Variance: {variance}, Kurtosis: {kurtosis}, Skewness: {skewness}, Range: {data_range}, Max: {max_value}, Min: {min_value}, IQR: {iqr}")
 
 def HistPlot(data):
     # Plot the histogram
     plt.hist(data, bins=30, density=True, alpha=0.7, color='#632134', edgecolor='black', label='Salary Distribution')
 
-    # Fit a normal distribution to the data
+    # Fitting a normal distribution to the data
     mu, std = norm.fit(data)
     xmin, xmax = plt.xlim()
     x = np.linspace(xmin, xmax, 100)
@@ -51,11 +49,8 @@ def HistPlot(data):
     plt.ylabel('Probability Density')
     plt.title('Distribution of Annual Salaries')
     plt.legend()
-
-    # Set x-axis and y-axis limits to start from 0
     plt.xlim(0, xmax)
     plt.ylim(0, plt.ylim()[1])
-
     plt.savefig('salary_distribution_plot.png')
     # Show the plot
     plt.show()
