@@ -55,5 +55,5 @@ def HistPlot(data):
     # Show the plot
     plt.show()
 
-# Drop NaN values and use the Series
+
 HistPlot(data['Salary'])
